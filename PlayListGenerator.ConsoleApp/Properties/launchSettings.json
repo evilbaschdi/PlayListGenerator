@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PlayListGenerator.ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "\"F:\\mp3\""
+    }
+  }
+}

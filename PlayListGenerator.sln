@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayListGenerator", "PlayListGenerator\PlayListGenerator.csproj", "{A84D24D5-8B46-46B3-BC29-5E447A6B06DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayListGenerator.Core", "PlayListGenerator.Core\PlayListGenerator.Core.csproj", "{80923113-65D3-4AC5-A858-F4DDFBE70373}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayListGenerator.ConsoleApp", "PlayListGenerator.ConsoleApp\PlayListGenerator.ConsoleApp.csproj", "{405230A8-61E0-46A9-8CFB-B9032CDCD4D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A84D24D5-8B46-46B3-BC29-5E447A6B06DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A84D24D5-8B46-46B3-BC29-5E447A6B06DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A84D24D5-8B46-46B3-BC29-5E447A6B06DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A84D24D5-8B46-46B3-BC29-5E447A6B06DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80923113-65D3-4AC5-A858-F4DDFBE70373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80923113-65D3-4AC5-A858-F4DDFBE70373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80923113-65D3-4AC5-A858-F4DDFBE70373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80923113-65D3-4AC5-A858-F4DDFBE70373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405230A8-61E0-46A9-8CFB-B9032CDCD4D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405230A8-61E0-46A9-8CFB-B9032CDCD4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405230A8-61E0-46A9-8CFB-B9032CDCD4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405230A8-61E0-46A9-8CFB-B9032CDCD4D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
