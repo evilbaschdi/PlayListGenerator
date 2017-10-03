@@ -23,20 +23,19 @@ namespace PlayListGenerator.Core.Internal
                 var errorList = new List<string>();
                 var currentFile = string.Empty;
                 var currentPath = string.Empty;
-                try
+
+                foreach (var file in _mediaFiles.Value.OrderBy(x => x))
                 {
-                    foreach (var file in _mediaFiles.Value.OrderBy(x => x))
+                    try
                     {
                         currentFile = file;
                         //C:\mp3\Artist\Album\Song.mp3 => Artist | Album | Song.mp3
                         //C:\mp3\Song.mp3 => Song.mp3
                         var filePathSplit = file.Replace(_root, "").Split('\\');
 
-
                         var targetFolder = _root;
                         string fileName;
                         string innerText;
-
 
                         if (Path.HasExtension(filePathSplit[0]))
                         {
@@ -57,11 +56,12 @@ namespace PlayListGenerator.Core.Internal
                         currentPath = path;
                         File.AppendAllText(path, innerText + Environment.NewLine);
                     }
+                    catch (Exception e)
+                    {
+                        errorList.Add(currentFile + " | " + currentPath + " | " + e.Message);
+                    }
                 }
-                catch (Exception e)
-                {
-                    errorList.Add(currentFile + " | " + currentPath + " | " + e.Message);
-                }
+
                 return errorList;
             }
         }
