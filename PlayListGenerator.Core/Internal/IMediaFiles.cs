@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PlayListGenerator.Core.Core;
+using EvilBaschdi.Core;
 
 namespace PlayListGenerator.Core.Internal
 {

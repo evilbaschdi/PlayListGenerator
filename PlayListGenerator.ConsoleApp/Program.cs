@@ -1,4 +1,5 @@
 ﻿using System;
+using EvilBaschdi.Core.Internal;
 using PlayListGenerator.Core.Internal;
 
 namespace PlayListGenerator.ConsoleApp
@@ -9,12 +10,15 @@ namespace PlayListGenerator.ConsoleApp
         {
             var path = args[0];
             ISupportedFileTypes supportedFileTypes = new SupportedFileTypes();
-            IDirectoriesToScan directoriesToScan = new DirectoriesToScan(path);
-            IFilesToScan filesToScan = new FilesToScan(directoriesToScan);
-            IMediaFiles mediaFiles = new MediaFiles(supportedFileTypes, filesToScan);
-            IWritePlayList writePlayList = new WritePlayList(mediaFiles, path);
+            IMultiThreading multiThreading = new MultiThreading();
+            IFileListFromPath fileListFromPath = new FileListFromPath(multiThreading);
+            ISupportedMediaFileTypesFilter supportedMediaFileTypesFilter= new SupportedMediaFileTypesFilter(supportedFileTypes);
+            IPathToScan pathToScan = new PathToScan(path);
+            IMediaFiles mediaFiles = new MediaFiles(supportedMediaFileTypesFilter,fileListFromPath, pathToScan);
+            IWritePlayList writePlayList = new WritePlayList(mediaFiles, pathToScan);
+            IExecutePlayListGeneration executePlayListGeneration = new ExecutePlayListGeneration(writePlayList);
 
-            writePlayList.Value.ForEach(Console.WriteLine);
+            executePlayListGeneration.Run();
             Console.WriteLine("done");
             Console.ReadLine();
         }
