@@ -13,7 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2018.2.12.1" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2018.416.22.11" />
+    <PackageReference Include="taglib-sharp-netstandard2.0" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

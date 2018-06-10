@@ -1,15 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using EvilBaschdi.Core.Internal;
+using PlayListGenerator.Core.Models;
 
 namespace PlayListGenerator.Core.Internal
 {
+    /// <inheritdoc />
+    /// <summary>
+    ///     Class providing a list of Mp3Info objects
+    /// </summary>
     public class MediaFiles : IMediaFiles
     {
         private readonly IFileListFromPath _filesToScan;
         private readonly IPathToScan _pathToScan;
         private readonly ISupportedMediaFileTypesFilter _supportedFileTypes;
 
+        /// <summary>
+        ///     Constructor
+        /// </summary>
+        /// <param name="supportedMediaFileTypesFilter"></param>
+        /// <param name="fileListFromPath"></param>
+        /// <param name="pathToScan"></param>
         public MediaFiles(ISupportedMediaFileTypesFilter supportedMediaFileTypesFilter, IFileListFromPath fileListFromPath, IPathToScan pathToScan)
 
         {
@@ -18,6 +29,40 @@ namespace PlayListGenerator.Core.Internal
             _supportedFileTypes = supportedMediaFileTypesFilter ?? throw new ArgumentNullException(nameof(supportedMediaFileTypesFilter));
         }
 
-        public List<string> Value => _filesToScan.ValueFor(_pathToScan.Value, _supportedFileTypes.Value);
+        /// <inheritdoc />
+        public List<Mp3Info> Value
+        {
+            get
+            {
+                var files = _filesToScan.ValueFor(_pathToScan.Value.EndsWith(":") ? $"{_pathToScan.Value}\\" : _pathToScan.Value, _supportedFileTypes.Value);
+                var tags = new List<Mp3Info>();
+                Console.WriteLine("Reading tags...");
+                foreach (var file in files)
+                {
+                    try
+                    {
+                        var tagLibFile = TagLib.File.Create(file);
+                        var tag = tagLibFile.Tag;
+
+                        var mp3Info = new Mp3Info
+                                      {
+                                          Path = file,
+                                          Track = tag.Track,
+                                          Year = tag.Year.Equals(0) ? 3000 : tag.Year,
+                                          AlbumSort = tag.AlbumSort
+                                      };
+
+                        tags.Add(mp3Info);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"{file}: {e.Message}");
+                    }
+                }
+
+                Console.WriteLine("Finished reading tags...");
+                return tags;
+            }
+        }
     }
 }

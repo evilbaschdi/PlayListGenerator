@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using EvilBaschdi.Core;
+using PlayListGenerator.Core.Models;
 
 namespace PlayListGenerator.Core.Internal
 {
-    public interface IMediaFiles : IValue<List<string>>
+    /// <inheritdoc />
+    public interface IMediaFiles : IValue<List<Mp3Info>>
     {
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PlayListGenerator.Core.Models;
 
 namespace PlayListGenerator.Core.Internal
 {
@@ -23,23 +24,25 @@ namespace PlayListGenerator.Core.Internal
             _pathToScan = pathToScan ?? throw new ArgumentNullException(nameof(pathToScan));
         }
 
+        /// <inheritdoc />
         public List<string> Value
         {
             get
             {
                 var errorList = new List<string>();
+                var fileCacheHelperList = new List<FileCacheHelper>();
                 var currentFile = string.Empty;
                 var currentPath = string.Empty;
-                var root = _pathToScan.Value;
+                var root = _pathToScan.Value.ToLower();
 
-                foreach (var file in _mediaFiles.Value.OrderBy(x => x))
+                foreach (var file in _mediaFiles.Value.OrderBy(x => x.Year).ThenBy(x => x.Path).ThenBy(x => x.Track))
                 {
                     try
                     {
-                        currentFile = file;
+                        currentFile = file.Path;
                         //C:\mp3\Artist\Album\Song.mp3 => Artist | Album | Song.mp3
                         //C:\mp3\Song.mp3 => Song.mp3
-                        var filePathSplit = file.Replace(root, "").Split('\\');
+                        var filePathSplit = currentFile.Replace(root, "").Split('\\');
 
                         var targetFolder = root;
                         string fileName;
@@ -49,26 +52,44 @@ namespace PlayListGenerator.Core.Internal
                         {
                             //Song.mp3
                             innerText = filePathSplit[0];
-                            fileName = $@"{targetFolder.Replace(root, "").Substring(0, targetFolder.Length - 1).Split('\\').Last()}.m3u";
+
+                            var replace = targetFolder.Replace(root, "");
+                            var substring = replace.Substring(0, targetFolder.Length - 1);
+
+
+                            fileName = $@"{substring.Split('\\').Last()}.m3u";
                         }
                         else
                         {
                             targetFolder = $@"{root}\{filePathSplit[1]}";
                             //Album\Song.mp3
-                            innerText = file.Replace(targetFolder, "").Substring(1);
+                            innerText = currentFile.Replace(targetFolder, "").Substring(1);
                             //C:\mp3\Artist
                             fileName = $@"{targetFolder.Replace(root, "")}.m3u";
                         }
 
                         var path = $@"{targetFolder}\{fileName}";
                         currentPath = path;
-                        File.AppendAllText(path, innerText + Environment.NewLine);
+                        File.AppendAllText(path, $"{innerText}{Environment.NewLine}");
+                        var fileCacheHelper = new FileCacheHelper
+                                              {
+                                                  PathFromRoot = Path.Combine(filePathSplit),
+                                                  TargetFolderFromRoot = path
+                                              };
+
+                        fileCacheHelperList.Add(fileCacheHelper);
                     }
                     catch (Exception e)
                     {
                         errorList.Add($"{currentFile} | {currentPath} | {e.Message}");
                     }
                 }
+
+                foreach (var fileCacheHelper in fileCacheHelperList.OrderBy(x => x.TargetFolderFromRoot))
+                {
+                    File.AppendAllText(Path.Combine(root, "all.m3u"), $"{fileCacheHelper.PathFromRoot}{Environment.NewLine}");
+                }
+
 
                 return errorList;
             }
