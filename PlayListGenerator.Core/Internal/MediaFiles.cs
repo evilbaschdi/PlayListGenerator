@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EvilBaschdi.Core.Extensions;
 using EvilBaschdi.Core.Internal;
 using PlayListGenerator.Core.Models;
 
@@ -46,7 +47,7 @@ namespace PlayListGenerator.Core.Internal
 
                         var mp3Info = new Mp3Info
                                       {
-                                          Path = file,
+                                          Path = file.FileInfo().GetProperFilePathCapitalization(),
                                           Track = tag.Track,
                                           Year = tag.Year.Equals(0) ? 3000 : tag.Year,
                                           AlbumSort = tag.AlbumSort
