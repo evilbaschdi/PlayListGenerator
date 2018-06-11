@@ -31,6 +31,11 @@ namespace PlayListGenerator.Core.Models
         public string Comment;
 
         /// <summary>
+        ///     duration property
+        /// </summary>
+        public int Duration;
+
+        /// <summary>
         ///     genre tag
         /// </summary>
         public string Genre;

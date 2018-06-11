@@ -44,10 +44,14 @@ namespace PlayListGenerator.Core.Internal
                     {
                         var tagLibFile = TagLib.File.Create(file);
                         var tag = tagLibFile.Tag;
+                        var properties = tagLibFile.Properties;
 
                         var mp3Info = new Mp3Info
                                       {
                                           Path = file.FileInfo().GetProperFilePathCapitalization(),
+                                          Title = tag.Title,
+                                          Artist = tag.FirstPerformer,
+                                          Duration = Convert.ToInt32(Math.Round(properties.Duration.TotalSeconds)),
                                           Track = tag.Track,
                                           Year = tag.Year.Equals(0) ? 3000 : tag.Year,
                                           AlbumSort = tag.AlbumSort

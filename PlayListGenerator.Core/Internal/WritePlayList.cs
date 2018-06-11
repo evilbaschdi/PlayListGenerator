@@ -70,11 +70,19 @@ namespace PlayListGenerator.Core.Internal
 
                         var path = $@"{targetFolder}\{fileName}";
                         currentPath = path;
+
+                        if (!File.Exists(path))
+                        {
+                            File.AppendAllText(path, $"#EXTM3U{Environment.NewLine}");
+                        }
+
+                        File.AppendAllText(path, $"#EXTINF:{file.Duration},{file.Artist} - {file.Title}{Environment.NewLine}");
                         File.AppendAllText(path, $"{innerText}{Environment.NewLine}");
                         var fileCacheHelper = new FileCacheHelper
                                               {
                                                   PathFromRoot = Path.Combine(filePathSplit),
-                                                  TargetFolderFromRoot = path
+                                                  TargetFolderFromRoot = path,
+                                                  Mp3Info = file
                                               };
 
                         fileCacheHelperList.Add(fileCacheHelper);
@@ -87,7 +95,14 @@ namespace PlayListGenerator.Core.Internal
 
                 foreach (var fileCacheHelper in fileCacheHelperList.OrderBy(x => x.TargetFolderFromRoot))
                 {
-                    File.AppendAllText(Path.Combine(root, "all.m3u"), $"{fileCacheHelper.PathFromRoot}{Environment.NewLine}");
+                    var path = Path.Combine(root, "all.m3u");
+                    if (!File.Exists(path))
+                    {
+                        File.AppendAllText(path, $"#EXTM3U{Environment.NewLine}");
+                    }
+
+                    File.AppendAllText(path, $"#EXTINF:{fileCacheHelper.Mp3Info.Duration},{fileCacheHelper.Mp3Info.Artist} - {fileCacheHelper.Mp3Info.Title}{Environment.NewLine}");
+                    File.AppendAllText(path, $"{fileCacheHelper.PathFromRoot}{Environment.NewLine}");
                 }
 
 

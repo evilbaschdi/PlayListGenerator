@@ -6,6 +6,11 @@
     public class FileCacheHelper
     {
         /// <summary>
+        ///     Mp3Info object;
+        /// </summary>
+        public Mp3Info Mp3Info;
+
+        /// <summary>
         ///     Path from root to file
         /// </summary>
         public string PathFromRoot;
