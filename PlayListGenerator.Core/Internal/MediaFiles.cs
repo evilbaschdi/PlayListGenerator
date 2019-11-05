@@ -42,7 +42,7 @@ namespace PlayListGenerator.Core.Internal
                 {
                     try
                     {
-                        var tagLibFile = TagLib.File.Create(file);
+                        using var tagLibFile = TagLib.File.Create(file);
                         var tag = tagLibFile.Tag;
                         var properties = tagLibFile.Properties;
 
