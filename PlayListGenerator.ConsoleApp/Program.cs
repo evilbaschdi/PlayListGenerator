@@ -14,8 +14,7 @@ namespace PlayListGenerator.ConsoleApp
         {
             var path = args[0];
             ISupportedFileTypes supportedFileTypes = new SupportedFileTypes();
-            IMultiThreading multiThreading = new MultiThreading();
-            IFileListFromPath fileListFromPath = new FileListFromPath(multiThreading);
+            IFileListFromPath fileListFromPath = new FileListFromPath();
             ISupportedMediaFileTypesFilter supportedMediaFileTypesFilter = new SupportedMediaFileTypesFilter(supportedFileTypes);
             IPathToScan pathToScan = new PathToScan(path);
             IMediaFiles mediaFiles = new MediaFiles(supportedMediaFileTypesFilter, fileListFromPath, pathToScan);

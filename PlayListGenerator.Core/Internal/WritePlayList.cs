@@ -63,7 +63,7 @@ namespace PlayListGenerator.Core.Internal
                         {
                             targetFolder = $@"{root}\{filePathSplit[1]}";
                             //Album\Song.mp3
-                            innerText = currentFile.Replace(targetFolder, "").Substring(1);
+                            innerText = currentFile.Replace(targetFolder, "")[1..];
                             //C:\mp3\Artist
                             fileName = $@"{targetFolder.Replace(root, "")}.m3u";
                         }

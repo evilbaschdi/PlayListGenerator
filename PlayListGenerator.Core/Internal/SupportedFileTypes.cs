@@ -2,9 +2,11 @@
 
 namespace PlayListGenerator.Core.Internal
 {
+    /// <inheritdoc />
     public class SupportedFileTypes : ISupportedFileTypes
     {
-        public List<string> Value => new List<string>
+        /// <inheritdoc />
+        public List<string> Value => new()
                                      {
                                          "mp3",
                                          "mp4",
