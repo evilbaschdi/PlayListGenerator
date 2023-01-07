@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using EvilBaschdi.Core;
+﻿using EvilBaschdi.Core;
 
-namespace PlayListGenerator.Core.Internal
+namespace PlayListGenerator.Core.Internal;
+
+/// <inheritdoc />
+public interface ISupportedFileTypes : IValueOfList<string>
 {
-    /// <inheritdoc />
-    public interface ISupportedFileTypes : IValue<List<string>>
-    {
-    }
 }

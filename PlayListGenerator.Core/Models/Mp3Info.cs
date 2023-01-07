@@ -2,67 +2,66 @@
 
 // ReSharper disable UnusedMember.Global
 
-namespace PlayListGenerator.Core.Models
+namespace PlayListGenerator.Core.Models;
+
+/// <summary>
+///     Mp3 info object
+/// </summary>
+public class Mp3Info
+
 {
     /// <summary>
-    ///     Mp3 info object
+    ///     album tag
     /// </summary>
-    public class Mp3Info
+    public string Album;
 
-    {
-        /// <summary>
-        ///     album tag
-        /// </summary>
-        public string Album;
+    /// <summary>
+    ///     album sort tag
+    /// </summary>
+    public string AlbumSort;
 
-        /// <summary>
-        ///     album sort tag
-        /// </summary>
-        public string AlbumSort;
+    /// <summary>
+    ///     artist tag
+    /// </summary>
+    public string Artist;
 
-        /// <summary>
-        ///     artist tag
-        /// </summary>
-        public string Artist;
+    /// <summary>
+    ///     comment tag
+    /// </summary>
+    public string Comment;
 
-        /// <summary>
-        ///     comment tag
-        /// </summary>
-        public string Comment;
+    /// <summary>
+    ///     duration property
+    /// </summary>
+    public int Duration;
 
-        /// <summary>
-        ///     duration property
-        /// </summary>
-        public int Duration;
+    /// <summary>
+    ///     genre tag
+    /// </summary>
+    public string Genre;
 
-        /// <summary>
-        ///     genre tag
-        /// </summary>
-        public string Genre;
+    /// <summary>
+    ///     path tag
+    /// </summary>
+    public string Path;
 
-        /// <summary>
-        ///     path tag
-        /// </summary>
-        public string Path;
+    /// <summary>
+    ///     tag id
+    /// </summary>
+    public string TagId;
 
-        /// <summary>
-        ///     tag id
-        /// </summary>
-        public string TagId;
+    /// <summary>
+    ///     title tag
+    /// </summary>
+    public string Title;
 
-        /// <summary>
-        ///     title tag
-        /// </summary>
-        public string Title;
+    /// <summary>
+    ///     track tag
+    /// </summary>
+    public uint Track;
 
-        /// <summary>
-        ///     track tag
-        /// </summary>
-        public uint Track;
-
-        /// <summary>
-        ///     year tag
-        /// </summary>
-        public uint Year;
-    }
+    /// <summary>
+    ///     year tag
+    /// </summary>
+    public uint Year;
 }
