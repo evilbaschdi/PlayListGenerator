@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="EvilBaschdi.Core" Version="2023.11.8.1715-develop" />
+    <PackageVersion Include="TagLibSharp" Version="2.3.0" />
+  </ItemGroup>
+</Project>
