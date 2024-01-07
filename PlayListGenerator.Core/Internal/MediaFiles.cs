@@ -21,7 +21,6 @@ public class MediaFiles : IMediaFiles
     /// <param name="fileListFromPath"></param>
     /// <param name="pathToScan"></param>
     public MediaFiles(ISupportedMediaFileTypesFilter supportedMediaFileTypesFilter, IFileListFromPath fileListFromPath, IPathToScan pathToScan)
-
     {
         _filesToScan = fileListFromPath ?? throw new ArgumentNullException(nameof(fileListFromPath));
         _pathToScan = pathToScan ?? throw new ArgumentNullException(nameof(pathToScan));
@@ -33,9 +32,11 @@ public class MediaFiles : IMediaFiles
     {
         get
         {
-            var files = _filesToScan.ValueFor(_pathToScan.Value.EndsWith(":") ? $"{_pathToScan.Value}\\" : _pathToScan.Value, _supportedFileTypes.Value);
+            var files = _filesToScan.ValueFor(_pathToScan.Value.EndsWith(':') ? $"{_pathToScan.Value}\\" : _pathToScan.Value, _supportedFileTypes.Value);
             var tags = new List<Mp3Info>();
+
             Console.WriteLine("Reading tags...");
+
             foreach (var file in files)
             {
                 try

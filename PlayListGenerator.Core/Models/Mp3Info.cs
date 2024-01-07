@@ -8,7 +8,6 @@ namespace PlayListGenerator.Core.Models;
 ///     Mp3 info object
 /// </summary>
 public class Mp3Info
-
 {
     /// <summary>
     ///     album tag
