@@ -3,6 +3,4 @@
 namespace PlayListGenerator.ConsoleApp;
 
 /// <inheritdoc />
-public interface IExecutePlayListGeneration : IRun
-{
-}
+public interface IExecutePlayListGeneration : IRun;

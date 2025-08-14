@@ -3,6 +3,4 @@
 namespace PlayListGenerator.Core.Internal;
 
 /// <inheritdoc />
-public interface IWritePlayList : IValueOfList<string>
-{
-}
+public interface IWritePlayList : IListOf<string>;

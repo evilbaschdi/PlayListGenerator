@@ -3,6 +3,4 @@
 namespace PlayListGenerator.Core.Internal;
 
 /// <inheritdoc />
-public interface IPathToScan : IString
-{
-}
+public interface IPathToScan : IString;

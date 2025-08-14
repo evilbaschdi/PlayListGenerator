@@ -51,7 +51,7 @@ public class WritePlayList : IWritePlayList
                         var replace = targetFolder.Replace(root, "");
                         var substring = replace[..(targetFolder.Length - 1)];
 
-                        fileName = $@"{substring.Split('\\').Last()}.m3u";
+                        fileName = $"{substring.Split('\\').Last()}.m3u";
                     }
                     else
                     {
@@ -59,7 +59,7 @@ public class WritePlayList : IWritePlayList
                         //Album\Song.mp3
                         innerText = currentFile.Replace(targetFolder, "")[1..];
                         //C:\mp3\Artist
-                        fileName = $@"{targetFolder.Replace(root, "")}.m3u";
+                        fileName = $"{targetFolder.Replace(root, "")}.m3u";
                     }
 
                     var path = $@"{targetFolder}\{fileName}";

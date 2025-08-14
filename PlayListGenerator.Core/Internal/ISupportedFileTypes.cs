@@ -3,6 +3,4 @@
 namespace PlayListGenerator.Core.Internal;
 
 /// <inheritdoc />
-public interface ISupportedFileTypes : IValueOfList<string>
-{
-}
+public interface ISupportedFileTypes : IListOf<string>;
