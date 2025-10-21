@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="NuGet.config" />
+  </Folder>
+  <Project Path="PlayListGenerator.ConsoleApp/PlayListGenerator.ConsoleApp.csproj" />
+  <Project Path="PlayListGenerator.Core/PlayListGenerator.Core.csproj" />
+</Solution>
