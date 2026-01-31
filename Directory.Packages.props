@@ -4,7 +4,7 @@
     <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="EvilBaschdi.Core" Version="2025.9.16.16" />
+    <PackageVersion Include="EvilBaschdi.Core" Version="2025.12.9.20" />
     <PackageVersion Include="TagLibSharp" Version="2.3.0" />
   </ItemGroup>
 </Project>
