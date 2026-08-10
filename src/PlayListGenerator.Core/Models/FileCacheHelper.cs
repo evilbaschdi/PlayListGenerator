@@ -1,4 +1,4 @@
-﻿namespace PlayListGenerator.Core.Models;
+namespace PlayListGenerator.Core.Models;
 
 /// <summary>
 ///     Helper class for "all.m3u" file caching

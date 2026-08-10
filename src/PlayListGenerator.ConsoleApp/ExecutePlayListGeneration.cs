@@ -1,4 +1,4 @@
-﻿using PlayListGenerator.Core.Internal;
+using PlayListGenerator.Core.Internal;
 
 namespace PlayListGenerator.ConsoleApp;
 

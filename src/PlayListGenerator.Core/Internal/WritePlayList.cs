@@ -1,4 +1,4 @@
-﻿using PlayListGenerator.Core.Models;
+using PlayListGenerator.Core.Models;
 
 namespace PlayListGenerator.Core.Internal;
 

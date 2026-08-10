@@ -1,4 +1,4 @@
-﻿// ReSharper disable NotAccessedField.Global
+// ReSharper disable NotAccessedField.Global
 
 // ReSharper disable UnusedMember.Global
 

@@ -1,4 +1,4 @@
-﻿using EvilBaschdi.Core;
+using EvilBaschdi.Core;
 using EvilBaschdi.Core.Model;
 
 namespace PlayListGenerator.Core.Internal;

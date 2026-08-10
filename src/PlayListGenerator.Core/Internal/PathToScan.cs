@@ -1,4 +1,4 @@
-﻿namespace PlayListGenerator.Core.Internal;
+namespace PlayListGenerator.Core.Internal;
 
 /// <inheritdoc />
 public class PathToScan : IPathToScan

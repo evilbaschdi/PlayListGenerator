@@ -1,4 +1,4 @@
-<Solution>
+﻿<Solution>
   <Folder Name="/Solution Items/">
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
@@ -6,6 +6,8 @@
     <File Path="global.json" />
     <File Path="NuGet.config" />
   </Folder>
-  <Project Path="PlayListGenerator.ConsoleApp/PlayListGenerator.ConsoleApp.csproj" />
-  <Project Path="PlayListGenerator.Core/PlayListGenerator.Core.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/PlayListGenerator.ConsoleApp/PlayListGenerator.ConsoleApp.csproj" />
+    <Project Path="src/PlayListGenerator.Core/PlayListGenerator.Core.csproj" />
+  </Folder>
 </Solution>
