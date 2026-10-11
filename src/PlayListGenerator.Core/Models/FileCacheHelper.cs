@@ -8,15 +8,15 @@ public class FileCacheHelper
     /// <summary>
     ///     Mp3Info object;
     /// </summary>
-    public Mp3Info Mp3Info;
+    public Mp3Info Mp3Info { get; init; }
 
     /// <summary>
     ///     Path from root to file
     /// </summary>
-    public string PathFromRoot;
+    public string PathFromRoot { get; init; } = string.Empty;
 
     /// <summary>
     ///     Path to target folder from root
     /// </summary>
-    public string TargetFolderFromRoot;
+    public string TargetFolderFromRoot { get; init; } = string.Empty;
 }

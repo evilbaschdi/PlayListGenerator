@@ -12,55 +12,56 @@ public class Mp3Info
     /// <summary>
     ///     album tag
     /// </summary>
-    public string Album;
+    public string Album { get; init; } = string.Empty;
 
     /// <summary>
     ///     album sort tag
     /// </summary>
-    public string AlbumSort;
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string AlbumSort { get; init; } = string.Empty;
 
     /// <summary>
     ///     artist tag
     /// </summary>
-    public string Artist;
+    public string Artist { get; init; } = string.Empty;
 
     /// <summary>
     ///     comment tag
     /// </summary>
-    public string Comment;
+    public string Comment { get; init; } = string.Empty;
 
     /// <summary>
     ///     duration property
     /// </summary>
-    public int Duration;
+    public int Duration { get; init; }
 
     /// <summary>
     ///     genre tag
     /// </summary>
-    public string Genre;
+    public string Genre { get; init; } = string.Empty;
 
     /// <summary>
     ///     path tag
     /// </summary>
-    public string Path;
+    public string Path { get; init; } = string.Empty;
 
     /// <summary>
     ///     tag id
     /// </summary>
-    public string TagId;
+    public string TagId { get; init; } = string.Empty;
 
     /// <summary>
     ///     title tag
     /// </summary>
-    public string Title;
+    public string Title { get; init; } = string.Empty;
 
     /// <summary>
     ///     track tag
     /// </summary>
-    public uint Track;
+    public uint Track { get; init; }
 
     /// <summary>
     ///     year tag
     /// </summary>
-    public uint Year;
+    public uint Year { get; init; }
 }
